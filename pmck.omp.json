@@ -1,0 +1,134 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#6ee0e0",
+          "template": "\u250c"
+        },
+        {
+          "type": "shell",
+          "style": "powerline",
+          "foreground": "#ffffff",
+          "template": "<#6ee0e0>[</>{{.Name}}<#6ee0e0>",
+          "properties": {
+            "mapped_shell_names": {
+              "pwsh": "\uebc7",
+              "cmd" : "\uebc4"
+            }
+          }
+        },
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": ":{{ .UserName }}<#6ee0e0>]</>",
+          "type": "session"
+        },
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "<#6ee0e0>[</><#ff6c6c>\ue265</><#6ee0e0>]</>",
+          "type": "root"
+        },
+        {
+          "type": "spotify",
+          "style": "powerline",
+          "foreground": "#ffffff",
+          "template": "<#6ee0e0>[</>{{ if ne .Status \"stopped\" }}<#1BD760>\udb81\udcc7 </>{{ .Artist }} <#6ee0e0>-</> {{ .Track }}{{ end }}<#6ee0e0>]</>",
+          "properties": {
+            "playing_icon": " ",
+            "paused_icon": " f",
+            "stopped_icon": " "
+          }
+        },
+        {
+          "type": "upgrade",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "template": "<#F43086>[\uf019</> {{.Current}} \uea9c {{.Latest}}<#F43086>]</>",
+          "properties": {
+            "cache_duration": "24h"
+          }
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "<#6ee0e0>[</>{{ if .UpstreamIcon}}{{ .UpstreamIcon }}:{{ end }}{{ .HEAD }}<#6ee0e0>]",
+          "type": "git",
+          "properties": {
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "github_icon": "<#0d74e7>\uea84</>",
+            "bitbucket_icon": "<#205081>\udb80\udca8</>",
+            "gitlab_icon": "<#E2432A>\udb82\udfa0</>",
+            "git_icon": "<#F1502F>\udb80\udea2</>",
+            "branch_icon": "<#6ee0e0>\ue725</>/",
+            "branch_ahead_icon": "<#cef2ac>\udb85\udcca</>/",
+            "branch_behind_icon": "<#f0440a>\udb85\udccb</>/"
+          }
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "foreground": "#ffffff",
+          "template": "<#6ee0e0>[</><#56bafc>\ue73c</>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}:{{ .Venv }}{{ end }}{{ end }}<#6ee0e0>]</>",
+          "properties": {
+            "fetch_virtual_env": true 
+          }
+        },
+        {
+          "type": "project",
+          "style": "powerline",
+          "foreground": "#ffffff",
+          "template": "<#6ee0e0>[</><#FFD814></> {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }}{{.Version}}{{ end }} {{ if .Name }}{{ .Name }}{{ end }}{{ end }}<#6ee0e0>]"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#02f8d7",
+          "template": "\u2514"
+        },
+        {
+          "foreground": "#ffffff",
+          "properties": {
+            "style": "full",
+            "home_icon": "\udb80\udedc",
+            "cycle": ["#fc5698", "#be90f0", "#fad775", "#6ee0e0"],
+            "cycle_folder_separator": true
+          },
+          "style": "plain",
+          "template": "<#02f8d7>[ </>{{ .Path }}<#02f8d7> ]",
+          "type": "path"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#fc5698",
+          "template": " ❯"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "console_title_template": "{{if .Root}} 🌶️ {{end}}{{.Shell}} in {{.Folder}}",
+  "final_space": true,
+  "version": 3
+}
